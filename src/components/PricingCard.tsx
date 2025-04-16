@@ -168,21 +168,24 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly, isRecommended
       </div>
       
       <motion.div className="mt-auto">
-        <Button
-          className={`w-full transition-all ${
-            plan.buttonVariant === "outline"
-              ? "border-brand-purple text-brand-purple hover:bg-brand-purple/10"
-              : plan.buttonVariant === "enterprise"
-              ? "bg-white text-brand-purple border border-brand-purple hover:bg-brand-purple/10"
-              : "bg-brand-purple hover:bg-brand-purple-dark text-white"
-          } group`}
-          variant={plan.buttonVariant === "outline" ? "outline" : "default"}
+        <motion.div
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
         >
-          {plan.buttonText}
-          <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
-        </Button>
+          <Button
+            className={`w-full transition-all ${
+              plan.buttonVariant === "outline"
+                ? "border-brand-purple text-brand-purple hover:bg-brand-purple/10"
+                : plan.buttonVariant === "enterprise"
+                ? "bg-white text-brand-purple border border-brand-purple hover:bg-brand-purple/10"
+                : "bg-brand-purple hover:bg-brand-purple-dark text-white"
+            } group`}
+            variant={plan.buttonVariant === "outline" ? "outline" : "default"}
+          >
+            {plan.buttonText}
+            <ArrowRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
         
         {plan.id !== "free" && (
           <p className="text-center text-xs text-muted-foreground mt-2">
